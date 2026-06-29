@@ -8,3 +8,5 @@ __pycache__/
 .vscode/
 screenshots/
 logs/
+# macOS system files
+.DS_Store
