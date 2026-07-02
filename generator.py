@@ -1,13 +1,14 @@
 # generator.py
+
 import string
 import random
 
 # для генерации тестовых данных
 class Generator:
     user='Андрей'
-    name = 'andrey'
+    name = 'andrei'
     surname = 'kozin'
-    cogort_number = '48'
+    cogort_number = '04'
     domain = 'gmail.com'
 
     @staticmethod
@@ -23,5 +24,3 @@ class Generator:
     def generate_password(length=6):
         test_pass=''.join(random.choices(string.ascii_letters + string.digits, k=length))
         return test_pass
-print(f'Email: {Generator.generate_email()}')
-print(f'Password: {Generator.generate_password()}')
