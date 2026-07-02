@@ -1,13 +1,11 @@
 #conftest.py
 import pytest
-import time
 
 from selenium import webdriver
 
 from reg_help import Reg
 from url import TestLinks
 from generator import Generator
-from locators import TestLocators
 
 # фикстура драйвера
 @pytest.fixture()
@@ -30,17 +28,18 @@ def test_password():
 
 # фикстура для регистрации
 @pytest.fixture
-def registered_user(driver, test_email, test_password):
-    
+def registered_user(driver):
+    name ='Андрей'
+    email= Generator.generate_email()
+    password=Generator.generate_password()
     driver.get(TestLinks.registration_page_link)
-    email, password= Reg.registered_user_ok(driver, test_email, test_password)
-    Reg.confirm_registration_success(driver)
-    return email,password
+    Reg.registration(driver, email, password,name)
+    yield email,password,name
 
-# для  логина
+    # для  логина
 @pytest.fixture
 def authorized_user(driver, registered_user):
-    test_email, test_password= registered_user
-    Reg.login(driver, test_email, test_password)
-    Reg.confirm_login_success(driver)
-    return test_email, test_password
+    email, password,_= registered_user
+    driver.get(TestLinks.login_page_link)
+    Reg.login(driver, email, password)
+    yield email,password
