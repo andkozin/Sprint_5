@@ -5,10 +5,10 @@ import random
 
 # для генерации тестовых данных
 class Generator:
-    user='Андрей'
-    name = 'andrei'
+
+    name_user = 'andrei'
     surname = 'kozin'
-    cogort_number = '04'
+    cogort_number = '08'
     domain = 'gmail.com'
 
     @staticmethod
@@ -17,7 +17,7 @@ class Generator:
 
     @classmethod
     def generate_email(cls):
-        test_email=f'{cls.name}_{cls.surname}_{cls.cogort_number}_{cls.random_digits()}@{cls.domain}'
+        test_email=f'{cls.name_user}_{cls.surname}_{cls.cogort_number}_{cls.random_digits()}@{cls.domain}'
         return test_email
 
     @staticmethod

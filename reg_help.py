@@ -8,10 +8,11 @@ from locators import TestLocators
 
 
 class Reg:
+    # 1. заполнение регистрации
     @staticmethod
     def registration(driver, email, password, name):
         wait = WebDriverWait(driver, 10)
-
+        
         name_field = wait.until(EC.element_to_be_clickable(TestLocators.NAME_FIELD))
         name_field.clear()
         name_field.send_keys(name)
@@ -26,7 +27,8 @@ class Reg:
 
         wait.until(EC.element_to_be_clickable(TestLocators.REGISTER_BUTTON)).click()
         wait.until(EC.url_to_be(TestLinks.login_page_link))
-       
+        
+       # 2. заполнение логина
     @staticmethod
     def login(driver, email, password):
         wait = WebDriverWait(driver, 10)

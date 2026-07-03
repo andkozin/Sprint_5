@@ -40,7 +40,6 @@ class TestLocators:
     ) # для сообщения Такой пользователь уже существует при регистрации
 
 
-   
     REGISTER_LINK_NEW_USER = (
         By.XPATH,
         "//a[contains(@class, 'Auth_link__1fOlj') "
@@ -126,4 +125,3 @@ class TestLocators:
         "//div[contains(@class, 'tab_tab_type_current') and "
         ".//span[normalize-space()='Начинки']]",
     )# вкладка Начинки актив.
-

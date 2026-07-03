@@ -34,7 +34,8 @@ class TestRegistration:
         assert expected_text in actual_text, (f"Ожидалось: '{expected_text}', Получено: '{actual_text}'")
 
     # 3. тест регистрации невалид. пароль
-    def test_invalid_password_error(self, driver, test_email):
+    def test_invalid_password_error(self, driver, registered_user):
+        email, _, _ = registered_user
        
         driver.get(TestLinks.registration_page_link)
 
@@ -42,7 +43,7 @@ class TestRegistration:
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable(TestLocators.NAME_FIELD))
 
         driver.find_element(*TestLocators.NAME_FIELD).send_keys('Андрей')
-        driver.find_element(*TestLocators.EMAIL_FIELD).send_keys(test_email)
+        driver.find_element(*TestLocators.EMAIL_FIELD).send_keys(email)
         driver.find_element(*TestLocators.PASSWORD_FIELD).send_keys('12345')  # 5 символов
         driver.find_element(*TestLocators.REGISTER_BUTTON).click()
 

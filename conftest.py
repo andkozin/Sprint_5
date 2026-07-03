@@ -16,16 +16,6 @@ def driver():
     yield driver  #  в тесты
     driver.quit()  # закрыл
 
-# фикстура для email
-@pytest.fixture
-def test_email():
-    return Generator.generate_email()
-
-# Фикстура для пароля
-@pytest.fixture
-def test_password():
-    return Generator.generate_password()
-
 # фикстура для регистрации
 @pytest.fixture
 def registered_user(driver):
