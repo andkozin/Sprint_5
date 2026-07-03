@@ -6,9 +6,9 @@ import random
 # для генерации тестовых данных
 class Generator:
 
-    name_user = 'andrei'
+    name_user = 'andrey'
     surname = 'kozin'
-    cogort_number = '08'
+    cogort_number = '48'
     domain = 'gmail.com'
 
     @staticmethod
